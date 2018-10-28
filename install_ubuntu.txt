@@ -50,11 +50,11 @@ sleep 2
 mkdir ~/.tmp_repos/ldf
 git clone https://github.com/thefloppytoast/linuxdotfiles.git ~/.tmp_repos/ldf
 
-cat ~/.tmp_repos/ldf/linuxdotfiles/.bashrc >> ~/.bashrc
-sudo cp -f ~/.tmp_repos/ldf/linuxdotfiles/.bash_aliases ~/.bash_aliases
-cp -f ~/.tmp_repos/ldf/linuxdotfiles/.welcome ~/.welcome
+cat ~/.tmp_repos/ldf/.bashrc >> ~/.bashrc
+sudo cp -f ~/.tmp_repos/ldf/.bash_aliases ~/.bash_aliases
+cp -f ~/.tmp_repos/ldf/.welcome ~/.welcome
 
-source ~/.bashrc
+~/.bashrc
 
 read -p "Install i3 environment? (y/n) " RESP
 if [ "$RESP" = "y" ]; then
@@ -92,9 +92,9 @@ libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev autoconf
 	read -p "Get dot Files for i3? (y/n) " RESPO
 	if [ "$RESPO" = "y" ]; then 
 		echo "----- Applying dot Files -----"
-		cp -rf ~/.tmp_repos/linuxdotfiles/.i3 ~/.i3
-		cp -f ~/.tmp_repos/linuxdotfiles/.i3_status.conf ~/.i3_status.conf
-		cp -f ~/.tmp_repos/linuxdotfiles/bg.jpg ~/bg.jpg
+		cp -rf ~/.tmp_repos/ldf/.i3 ~/.i3
+		cp -f ~/.tmp_repos/ldf/.i3_status.conf ~/.i3_status.conf
+		cp -f ~/.tmp_repos/ldf/bg.jpg ~/bg.jpg
 		wal -i ~/bg.jpg -c
 	else
 		echo "----- Skipping -----"
