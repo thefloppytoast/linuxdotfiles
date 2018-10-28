@@ -60,6 +60,7 @@ if [ "$RESP" = "y" ]; then
 	echo "----- Installing i3 -----"
 	sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-xinerama0-dev libxcb-cursor-dev 
 libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev autoconf
+	sudo apt-get --no-upgrade install xinit
 	cd ~/.tmp_repos
 	git clone https://github.com/Airblader/xcb-util-xrm
 	cd xcb-util-xrm
@@ -111,6 +112,9 @@ if [ "$RESPON" = "y" ]; then
 else
 	echo "----- Skipping -----"
 fi
+
+echo "----- Cleaning up -----"
+rm -rf ~/.tmp_repos
 
 echo "-----! Install Script Complete !-----"
 sleep 1
