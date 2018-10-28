@@ -47,11 +47,12 @@ sleep 2
 echo "----- Fetching dot Files from Repository -----"
 sleep 2
 
-git clone https://github.com/thefloppytoast/linuxdotfiles.git ~/.tmp_repos
+mkdir ~/.tmp_repos/ldf
+git clone https://github.com/thefloppytoast/linuxdotfiles.git ~/.tmp_repos/ldf
 
-cat ~/.tmp_repos/linuxdotfiles/.bashrc >> ~/.bashrc
-sudo cp -f ~/.tmp_repos/linuxdotfiles/.bash_aliases ~/.bash_aliases
-cp -f ~/.tmp_repos/linuxdotfiles/.welcome ~/.welcome
+cat ~/.tmp_repos/ldf/linuxdotfiles/.bashrc >> ~/.bashrc
+sudo cp -f ~/.tmp_repos/ldf/linuxdotfiles/.bash_aliases ~/.bash_aliases
+cp -f ~/.tmp_repos/ldf/linuxdotfiles/.welcome ~/.welcome
 
 source ~/.bashrc
 
@@ -61,7 +62,8 @@ if [ "$RESP" = "y" ]; then
 	sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-xinerama0-dev libxcb-cursor-dev 
 libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev autoconf
 	sudo apt-get --no-upgrade install xinit
-	cd ~/.tmp_repos
+	mkdir ~/.tmp_repos/xux
+	cd ~/.tmp_repos/xux
 	git clone https://github.com/Airblader/xcb-util-xrm
 	cd xcb-util-xrm
 	git submodule update --init
