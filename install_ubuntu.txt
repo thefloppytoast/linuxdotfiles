@@ -122,7 +122,7 @@ echo "-----! Install Script Complete !-----"
 sleep 1
 
 read -p "Restart now? (y/n) " RESPONS
-if[ "$RESPONS" = "y" ]; then
+if [ "$RESPONS" = "y" ]; then
 	echo "----- Rebooting now! -----"
 	sudo reboot -h now
 else
