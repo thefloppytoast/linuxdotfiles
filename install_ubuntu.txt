@@ -49,9 +49,9 @@ sleep 2
 
 git clone https://github.com/thefloppytoast/linuxdotfiles.git ~/.tmp_repos
 
-cp -f ~/.tmp_repos/linuxdotfiles/.bashrc ~/.bashrc
-cp -f ~/.tmp_repos/linuxdotfiles/.bash_aliases ~/.bash_aliases
-cp -f ~/.tmp_repos/linuxdotfiles/.hello ~/.hello
+cat ~/.tmp_repos/linuxdotfiles/.bashrc >> ~/.bashrc
+sudo cp -f ~/.tmp_repos/linuxdotfiles/.bash_aliases ~/.bash_aliases
+cp -f ~/.tmp_repos/linuxdotfiles/.welcome ~/.welcome
 
 source ~/.bashrc
 
@@ -97,11 +97,11 @@ libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev xutils-dev autoconf
 	else
 		echo "----- Skipping -----"
 	fi
+	echo "----- i3 Install Complete -----"
 else
 	echo "----- Skipping -----"
 fi
 
-echo "----- i3 Install Complete -----"
 sleep 3
 
 read -p "Install a DisplayManager? (y/n) " RESPON
