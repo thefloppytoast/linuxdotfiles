@@ -21,26 +21,14 @@ mkdir ~/.tmp_repos
 
 sudo apt-get --no-upgrade --no-install-recommends install firefox
 
-sudo apt install -y g++ libgtk-3-dev gtk-doc-tools gnutls-bin valac intltool libprce2-dev libglib3.0-cli-dev libgnutls28-dev libgirepository1.0-dev libxml2-utils gperf build-essential
-git clone https://github.com/thestinger/vte-ng.git ~/.tmp_repos
-echo export LIBRARY_PATH="/usr/include/gtk-3.0:$LIBRARY_PATH"
-cd ~/.tmp_repos/vte-ng && .autogen.sh && make && sudo make install
-cd ..
-
-git clone --recursive https://github.com/thestinger/termite.git
-cd termite && make && sudo make install
-sudo ldconfig
-sudo mkdir -p /lib/terminfo/x
-sudo ln -s /usr/local/share/terminfo/x/xterm-termite /lib/terminfo/x/xterm-termite
-cd ~/
-
-sudo apt-get --no-upgrade install ranger
-sudo apt-get --no-upgrade install git
-sudo apt-get --no-upgrade install feh
-sudo apt-get install --no-upgrade software-properties-common
-sudo apt-get --no-upgrade install lolcat
-sudo apt-get --no-upgrade install screenfetch
-sudo apt-get --no-upgrade install neofetch
+sudo apt-get install -y g++ terminator
+sudo apt-get --no-upgrade install ranger -y
+sudo apt-get --no-upgrade install git -y
+sudo apt-get --no-upgrade install feh -y
+sudo apt-get install --no-upgrade software-properties-common -y
+sudo apt-get --no-upgrade install lolcat -y
+sudo apt-get --no-upgrade install screenfetch -y
+sudo apt-get --no-upgrade install neofetch -y
 
 echo "----- Installation Complete -----"
 sleep 2
@@ -76,21 +64,23 @@ libxcb-xrm0 libxcb-xrm-dev -y
 	make
 	sudo make install
 
-	sudo apt-get install i3-status
-	sudo apt-get install compton
-	sudo apt-get install --no-upgrade dmenu
-	sudo apt-get --no-upgrade install fonts-font-awesome
-	sudo apt-get -y install python3-pip
-	pip3 install pywal
+	sudo apt-get install i3-status -y
+	sudo apt-get install i3blocks -y
+	sudo apt-get install compton -y
+	sudo apt-get install --no-upgrade dmenu -y
+	sudo apt-get --no-upgrade install fonts-font-awesome -y
+	sudo apt-get -y install python3-pip -y
+	sudo pip3 install pywal
+	sudo apt-get install -y --no-upgrade imagemagick
 
 	read -p "Install Desktop Programs? (y/n) " RESPONSE
 	if [ "$RESPONSE" = "y" ]; then
 		sleep 2
 		echo "----- Insatlling Programs -----"
-		sudo apt-get --no-upgrade install thunar
-		sudo apt-get --no-upgrade install thunderbird
+		sudo apt-get --no-upgrade install thunar -y
+		sudo apt-get --no-upgrade install thunderbird -y
 	else
-		echo "----- Skipping -----""
+		echo "----- Skipping -----"
 	fi
 
 	read -p "Get dot Files for i3? (y/n) " RESPO
@@ -99,7 +89,7 @@ libxcb-xrm0 libxcb-xrm-dev -y
 		cp -rf ~/.tmp_repos/ldf/.i3 ~/.i3
 		cp -f ~/.tmp_repos/ldf/.i3_status.conf ~/.i3_status.conf
 		cp -f ~/.tmp_repos/ldf/bg.jpg ~/bg.jpg
-		wal -i ~/bg.jpg -c
+		wal -i ~/bg.jpg
 	else
 		echo "----- Skipping -----"
 	fi
@@ -114,8 +104,8 @@ read -p "Install a DisplayManager? (y/n) " RESPON
 if [ "$RESPON" = "y" ]; then
 	echo "----- Installing LightDM -----"
 	sleep 2
-	sudo apt-get --no-upgrade -y install slim
-	echo "exec i3" >> ~/.xinitrc
+	sudo apt-get --no-upgrade -y install lightdm
+	sudo apt-get install lightdm-kde-greeter -y
 else
 	echo "----- Skipping -----"
 fi
