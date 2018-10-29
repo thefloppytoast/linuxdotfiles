@@ -15,5 +15,3 @@ cat .welcome | lolcat
 
 (cat ~/.cache/wal/sequences &)
 
-torsocks on
-echo "To turn off tor mode, type 'torsocks off'"
