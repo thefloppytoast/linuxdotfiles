@@ -21,7 +21,7 @@ mkdir ~/.tmp_repos
 
 sudo apt-get --no-upgrade --no-install-recommends install firefox
 
-sudo apt-get install -y g++ terminator
+sudo apt-get install -y g++ gnome-terminal
 sudo apt-get --no-upgrade install ranger -y
 sudo apt-get --no-upgrade install git -y
 sudo apt-get --no-upgrade install feh -y
@@ -39,13 +39,13 @@ sleep 2
 mkdir ~/.tmp_repos/ldf
 git clone https://github.com/thefloppytoast/linuxdotfiles.git ~/.tmp_repos/ldf
 
-cat ~/.tmp_repos/ldf/.bashrc >> ~/.bashrc
-sudo cp -f ~/.tmp_repos/ldf/.bash_aliases ~/.bash_aliases
-cp -f ~/.tmp_repos/ldf/.welcome ~/.welcome
+cat ~/.tmp_repos/ldf/ubuntu/.bashrc >> ~/.bashrc
+sudo cp -f ~/.tmp_repos/ldf/ubuntu/.bash_aliases ~/.bash_aliases
+cp -f ~/.tmp_repos/ldf/ubuntu/.welcome ~/.welcome
 
 sudo source ~/.bashrc
 
-read -p "Install i3 environment? (y/n) " RESP
+read -p ">>> Install i3 environment? (y/n) " RESP
 if [ "$RESP" = "y" ]; then
 	echo "----- Installing i3 -----"
 	sudo apt-get --no-upgrade install xinit xutils-dev autoconf automake -y
@@ -73,7 +73,7 @@ if [ "$RESP" = "y" ]; then
 	sudo pip3 install pywal
 	sudo apt-get install -y --no-upgrade imagemagick
 
-	read -p "Install Desktop Programs? (y/n) " RESPONSE
+	read -p ">>> Install Desktop Programs? (y/n) " RESPONSE
 	if [ "$RESPONSE" = "y" ]; then
 		sleep 2
 		echo "----- Insatlling Programs -----"
@@ -83,13 +83,13 @@ if [ "$RESP" = "y" ]; then
 		echo "----- Skipping -----"
 	fi
 
-	read -p "Get dot Files for i3? (y/n) " RESPO
+	read -p ">>> Get dot Files for i3? (y/n) " RESPO
 	if [ "$RESPO" = "y" ]; then 
 		echo "----- Applying dot Files -----"
-		cp -rf ~/.tmp_repos/ldf/.i3 ~/.i3
-		cp -f ~/.tmp_repos/ldf/.i3_status.conf ~/.i3_status.conf
-		cp -f ~/.tmp_repos/ldf/bg.jpg ~/bg.jpg
-		cp -f ~/.tmp_repos/ldf/.config/compton.conf ~/.config/compton.conf
+		cp -rf ~/.tmp_repos/ldf/ubuntu/.i3 ~/.i3
+		cp -f ~/.tmp_repos/ldf/ubuntu/.i3_status.conf ~/.i3_status.conf
+		cp -f ~/.tmp_repos/ldf/ubuntu/bg.jpg ~/bg.jpg
+		cp -f ~/.tmp_repos/ldf/ubuntu/.config/compton.conf ~/.config/compton.conf
 		wal -i ~/bg.jpg
 	else
 		echo "----- Skipping -----"
@@ -101,7 +101,7 @@ fi
 
 sleep 3
 
-read -p "Install a DisplayManager? (y/n) " RESPON
+read -p ">>> Install a DisplayManager? (y/n) " RESPON
 if [ "$RESPON" = "y" ]; then
 	echo "----- Installing LightDM -----"
 	sleep 2
@@ -117,7 +117,7 @@ rm -rf ~/.tmp_repos
 echo "-----! Install Script Complete !-----"
 sleep 1
 
-read -p "Restart now? (y/n) " RESPONS
+read -p ">>> Restart now? (y/n) " RESPONS
 if [ "$RESPONS" = "y" ]; then
 	echo "----- Rebooting now! -----"
 	sudo reboot -h now
