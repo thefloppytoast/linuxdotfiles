@@ -6,10 +6,7 @@ sleep 3
 echo "----- Updating System Now -----"
 sleep 2
 
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt update -y
-sudo apt upgrade -y
+sudo pacman -Syu --no-confirm
 
 echo "----- System Update Complete -----"
 sleep 1
@@ -19,14 +16,14 @@ sleep 2
 
 mkdir ~/.tmp_repos
 
-sudo pacman-Syuq --noconfirm  firefox
-sudo pacman-Syuq --noconfirm g++ termite
-sudo pacman-Syuq --noconfirm  ranger
-sudo pacman-Syuq --noconfirm git
-sudo pacman-Syuq --noconfirm feh
-sudo pacman-Syuq --noconfirm lolcat
-sudo pacman-Syuq --noconfirm screenfetch
-sudo pacman-Syuq --noconfirm neofetch
+sudo pacman -Syuq --noconfirm  firefox
+sudo pacman -Syuq --noconfirm g++ termite
+sudo pacman -Syuq --noconfirm  ranger
+sudo pacman -Syuq --noconfirm git
+sudo pacman -Syuq --noconfirm feh
+sudo pacman -Syuq --noconfirm lolcat
+sudo pacman -Syuq --noconfirm screenfetch
+sudo pacman -Syuq --noconfirm neofetch
 
 echo "----- Installation Complete -----"
 sleep 1
@@ -47,23 +44,23 @@ read -p ">>> Install i3 environment? (y/n) " RESP
 if [ "$RESP" = "y" ]; then
 	echo "----- Installing i3 -----"
 
-	sudo pacman-Syuq --noconfirm xorg-xinit xorg-server xorg-xrandr arandr
+	sudo pacman -Syuq --noconfirm xorg-xinit xorg-server xorg-xrandr arandr
 	
-	sudo pacman-Syuq --noconfirm i3
+	sudo pacman -Syuq --noconfirm i3
 
-	sudo pacman-Syuq --noconfirm compton
-	sudo pacman-Syuq --noconfirm dmenu
-	sudo pacman-Syuq --noconfirm ttf-font-awesome
-	sudo pacman-Syuq --noconfirm python-pip
+	sudo pacman -Syuq --noconfirm compton
+	sudo pacman -Syuq --noconfirm dmenu
+	sudo pacman -Syuq --noconfirm ttf-font-awesome
+	sudo pacman -Syuq --noconfirm python-pip
 	sudo pip3 install pywal
-	sudo pacman-Syuq --noconfirm imagemagick
+	sudo pacman -Syuq --noconfirm imagemagick
 
 	read -p ">>> Install Desktop Programs? (y/n) " RESPONSE
 	if [ "$RESPONSE" = "y" ]; then
 		sleep 2
 		echo "----- Insatlling Programs -----"
-		sudo pacman-Syuq --noconfirm thunar
-		sudo pacman-Syuq --noconfirm thunderbird
+		sudo pacman -Syuq --noconfirm thunar
+		sudo pacman -Syuq --noconfirm thunderbird
 	else
 		echo "----- Skipping -----"
 	fi
@@ -90,8 +87,8 @@ read -p ">>> Install a DisplayManager? (y/n) " RESPON
 if [ "$RESPON" = "y" ]; then
 	echo "----- Installing LightDM -----"
 	sleep 2
-	sudo pacman-Syuq --noconfirm lightdm
-	sudo pacman-Syuq --noconfirm lightdm-webkit2-greeter
+	sudo pacman -Syuq --noconfirm lightdm
+	sudo pacman -Syuq --noconfirm lightdm-webkit2-greeter
 else
 	echo "----- Skipping -----"
 fi
