@@ -52,7 +52,7 @@ set $right semicolon
 floating_modifier Mod4
 
 # start a terminal
-bindsym Mod4+Return exec hyper
+bindsym Mod4+Return exec gnome-terminal
 
 # kill focused window
 bindsym Mod4+Shift+q kill
@@ -233,13 +233,13 @@ bar {
 
 # start dmenu (rofi now) (a program launcher)
 #bindsym $mod+d exec rofi -show run
-bindsym $mod+d exec albert show
-#bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec albert show
+bindsym $mod+d exec dmenu_run
 
 
 #custom binds
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
-bindsym $mod+t exec termite
+bindsym $mod+t exec gnome-terminal
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pkill -RTMIN+10 i3blocks #increase sound volume

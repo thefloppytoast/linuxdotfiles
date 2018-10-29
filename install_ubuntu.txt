@@ -50,8 +50,8 @@ if [ "$RESP" = "y" ]; then
 	echo "----- Installing i3 -----"
 	sudo apt-get --no-upgrade install xinit xutils-dev autoconf automake -y
 	
-	sudo apt-get install libxcb1-dev libxcb-keysms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstrartup-notification0-dev libxcb-randr0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev 
-libxcb-xrm0 libxcb-xrm-dev -y
+	sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libxcb-xkb-dev -y 
+	sudo apt-get install libxkbcommon-dev libxkbcommon-x11-dev libxcb-xrm0 libxcb-xrm-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libtool pkgconf -y
 
 	mkdir ~/.tmp_repos/i3-gaps
 	cd ~/.tmp_repos/i3-gaps
@@ -89,6 +89,7 @@ libxcb-xrm0 libxcb-xrm-dev -y
 		cp -rf ~/.tmp_repos/ldf/.i3 ~/.i3
 		cp -f ~/.tmp_repos/ldf/.i3_status.conf ~/.i3_status.conf
 		cp -f ~/.tmp_repos/ldf/bg.jpg ~/bg.jpg
+		cp -f ~/.tmp_repos/ldf/.config/compton.conf ~/.config/compton.conf
 		wal -i ~/bg.jpg
 	else
 		echo "----- Skipping -----"
